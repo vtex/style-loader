@@ -21,8 +21,12 @@ var stylesInDom = {},
 	styleElementsInsertedAtTop = [];
 
 module.exports = function(list, options) {
-	if(typeof DEBUG !== "undefined" && DEBUG) {
-		if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+	if(typeof document !== "object") {
+		var cssStrings = listToStyles(list)[0].parts[0].css
+		window.bundleCss = window.bundleCss
+			? window.bundleCss + "\n" + cssStrings
+			: cssStrings;
+		return;
 	}
 
 	options = options || {};
@@ -34,6 +38,8 @@ module.exports = function(list, options) {
 	if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
 
 	var styles = listToStyles(list);
+	var bundleStyle = document.getElementById('render-bundle-css');
+	if(bundleStyle) getHeadElement().removeChild(bundleStyle);
 	addStylesToDom(styles, options);
 
 	return function update(newList) {
