@@ -1,6 +1,6 @@
 {
-  "name": "style-loader",
-  "version": "0.13.1",
+  "name": "@vtex/style-loader",
+  "version": "0.14.0",
   "author": "Tobias Koppers @sokra",
   "description": "style loader module for webpack",
   "devDependencies": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:webpack/style-loader.git"
+    "url": "git@github.com:vtex/style-loader.git"
   },
   "license": "MIT",
   "dependencies": {
