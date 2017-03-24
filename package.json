@@ -3,6 +3,7 @@
   "version": "0.16.1",
   "author": "Tobias Koppers @sokra",
   "description": "style loader module for webpack",
+  "public": true,
   "devDependencies": {
     "css-loader": "^0.27.3",
     "file-loader": "^0.10.1",
